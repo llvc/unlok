@@ -1,0 +1,69 @@
+<aside>
+  <div id="sidebar" class="nav-collapse " tabindex="5000" style="overflow: hidden; outline: none;">
+    <div class="sidebar-toggle-box">
+      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" style="color: #797979;"></div>
+    </div>
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu <%= 'expanded-sidebar-menu' if session[:first_launch] == 1 %>" id="nav-accordion" style="display: none;">
+      <!--logo start-->
+      <a href="javascript:void(0);" class="logo">
+       <%= image_tag("logo.png") %>
+      </a>
+      <!--logo end-->
+      <li class="mt">
+        <a href="/profile" class="<%= (request.url.include?('profile') ? 'active' : '') %>">
+          <%= image_tag current_user.profile.nil? ? 'no-avatar.jpg' : current_user.profile.avatar.url(:thumb),:class =>"img-circle",:width=>"32", :height=>"32" %>
+          <h5>My Profile</h5>
+        </a>
+      </li>
+      <li class="sub-menu mt">
+
+        <%= link_to unlok_air_index_path(category: 'aircraft'), class: (request.url.include?('unlok_air') ? 'active' : '') do %>
+
+          <%= image_tag("icon2.png",:width=>"20") %>
+          <span style="font-weight: bold;">UnlokAir</span>
+        <% end %>
+      </li>
+      <li class="sub-menu">
+        <a href="/unlokshop" class="<%= (request.url.include?('unlokshop') ? 'active' : '') %>">
+          <%= image_tag("icon1.png",:width=>"20") %>
+          <span>UnlokShop</span>
+        </a>
+      </li>
+      <!-- <li class="sub-menu">
+        <a href="/unlokfinance">
+          <%= image_tag("icon3.png",:width=>"20") %>
+          <span>Unlok Finance</span>
+        </a>
+      </li> -->
+      <li class="sub-menu">
+        <%= link_to new_contact_path, class: (request.url.include?('contact') ? 'active' : '') do%>
+          <%= image_tag("icon4.png",:width=>"20") %>
+          <span>Contact us</span>
+        <% end %>
+      </li>
+      <!-- <li class="sub-menu">
+        <a href="/settings">
+          <%= image_tag("icon5.png",:width=>"20") %>
+          <span>Settings</span>
+        </a>
+      </li> -->
+      <li class="sub-menu">
+        <%= link_to about_us_path, class: (request.url.include?('about-us') ? 'active' : '') do %>
+            <%= image_tag("icon9.png",:width=>"20") %>
+            <span>About us</span>
+        <% end %>
+        <!--<a href="/about_us.html">-->
+          <!--<%= image_tag("icon9.png",:width=>"20") %>-->
+          <!--<span>About Us</span>-->
+        <!--</a>-->
+      </li>
+      <li class="sub-menu">
+        <%= link_to destroy_user_session_path,:method => :delete,:title=>"Return Home" do%>
+          <%= image_tag("icon6.png",:width=>"20") %>
+           <span>Logout</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</aside>

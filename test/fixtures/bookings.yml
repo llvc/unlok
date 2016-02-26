@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  flight_type: MyString
+  from_place: MyString
+  to_place: MyString
+  date_of_journey: MyString
+  noofpassengers: MyString
+
+two:
+  name: MyString
+  type: 
+  flight_type: MyString
+  from_place: MyString
+  to_place: MyString
+  date_of_journey: MyString
+  noofpassengers: MyString

@@ -1,0 +1,27 @@
+{:uriI"æfile://app/assets/images/ic_info_outline_white_24dp/ios/ic_info_outline_white.imageset/Contents.json?type=application/json&id=e53627bbdbaee8547b57876d5c8fb7d291dac53c382fecc149e77669d899a9fb:ET:load_pathI"app/assets/images;T:filenameI"bapp/assets/images/ic_info_outline_white_24dp/ios/ic_info_outline_white.imageset/Contents.json;T:	nameI"Kic_info_outline_white_24dp/ios/ic_info_outline_white.imageset/Contents;T:logical_pathI"Pic_info_outline_white_24dp/ios/ic_info_outline_white.imageset/Contents.json;T:content_typeI"application/json;T:sourceI"ˆ{
+    "images": [
+        {
+            "filename": "ic_info_outline_white.png",
+            "idiom": "universal",
+            "scale": "1x"
+        },
+        {
+            "filename": "ic_info_outline_white_2x.png",
+            "idiom": "universal",
+            "scale": "2x"
+        },
+        {
+            "filename": "ic_info_outline_white_3x.png",
+            "idiom": "universal",
+            "scale": "3x"
+        }
+    ],
+    "info": {
+        "author": "xcode",
+        "version": 1
+    }
+}
+;T:metadata{	:dependencieso:Set:
+@hash{	I"environment-version;TTI"environment-paths;TTI"@processors:type=application/json&file_type=application/json;TTI"pfile-digest://app/assets/images/ic_info_outline_white_24dp/ios/ic_info_outline_white.imageset/Contents.json;TT:charsetI"
+utf-8;F:digest"%±Üb&ÕùıÌ«Ï√úìÈÎ∆+¯Vv<XÉ◊=Å◊ßZ:lengthiˆ:dependencies_digest"%ÓfﬁTõTµ¿ÈáöQ`çªC·ﬂ±?q–ú/áﬁQ±ù:idI"Ee53627bbdbaee8547b57876d5c8fb7d291dac53c382fecc149e77669d899a9fb;F:
+mtimel+±‡œV

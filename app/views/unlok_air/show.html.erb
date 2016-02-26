@@ -1,0 +1,66 @@
+<section id="main-content">
+  <section class="wrapper">
+    <h3></h3>
+    <div class="row mt">
+
+        <section class="thumbnails-3x">
+          <% @item.pictures.each_with_index do |p, index| %>
+
+              <div class="card" style="margin-bottom: 10px;">
+                  <a rel="gallery" title="<%= @item.name %>" href="<%= p.image.url() %>" class="swipebox">
+                  <%= image_tag(p.image.url(:large)) rescue nil%>
+                  <h6 style="padding-left: 15px;"><%= @item.name %></h6>
+                  </a>
+              </div>
+
+          <% end %>
+        </section>
+
+        <!--<table class="table-responsive" width="100%">-->
+          <!--<tr>-->
+            <!--<td width="33.33%"></td>-->
+            <!--<td width="33.33%"></td>-->
+            <!--<td width="33.33%"></td>-->
+          <!--</tr>-->
+          <!--<% @item.pictures.each_with_index do |p, index| %>-->
+              <!--<% if index % 3 == 0 %>-->
+                  <!--<tr>-->
+              <!--<% end %>-->
+              <!--<td>-->
+                <!--<div class="card" style="margin: 5px;">-->
+                  <!--<a rel="gallery" title="<%= @item.name %>" href="<%= p.image.url() %>" class="swipebox">-->
+                    <!--<%= image_tag(p.image.url(:large)) rescue nil%>-->
+                    <!--<h6 style="padding-left: 15px;"><%= @item.name %></h6>-->
+                  <!--</a>-->
+                <!--</div>-->
+              <!--</td>-->
+
+              <!--<% if index % 3 == 2 || index == @item.pictures.count %>-->
+                  <!--</tr>-->
+              <!--<% end %>-->
+          <!--<% end %>-->
+        <!--</table>-->
+
+    </div>
+    <div class="rows mt">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="form-content">
+            <h4 class="title">Flight specifications</h4>
+            <hr>
+            <div class="row">
+              <div class="col-sm-12 info">
+              <% @item.item_specifications.each do |spec| %>
+                <p><%= spec.skey %>:<span><%= spec.svalue %></span></p>
+              <% end %>
+              </div>
+            </div>
+            <br>
+            <%= link_to 'Book a flight', new_booking_path(item_id: @item.id), class: 'btn', style: 'width: 250px' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= link_to '', new_booking_path(:item_id => params[:id]), class: 'md-button' %>
+  </section>
+</section>

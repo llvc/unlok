@@ -1,0 +1,141 @@
+<div id="page-header">
+    <div class="page-wrap">
+      <div class="logo-wrapper">
+        <a href="http://www.citruspay.com/"> <img height="32" width="81"
+          src="<%=asset_path "logo_citrus.png"%>" alt="Citrus" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="page-client-logo">&#160;</div>
+  <div id="page-wrapper">
+    <div class="box-white">
+      <div class="page-content">
+      <h3>Test Citrus Payment Gateway</h3>
+      <form action="<%= $action %>" method="POST"
+          name="TransactionForm" id="transactionForm">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  
+  <% if @flag==false %>
+  <h1>Enter New Transaction Details</h1><br /><br />
+  <ul class="form-wrapper add-merchant clearfix">
+      <li class="clearfix"> <label width="125px;">Merchant Access Key:</label>
+      <input class="text" name="merchantAccessKey" type="text" value="<%= $accesskey %>" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Invoice Number:</label><input class="text" name="merchantTxnId"
+        type="text" value="ULK_<%= @invoice_number  %>" /></li>
+    
+      <li class="clearfix"> <label width="125px;">First Name:</label><input class="text" name="firstName" type="text"
+        value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Last Name:</label><input class="text" name="lastName" type="text" value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Address:</label><input class="text" name="addressStreet1"
+        type="text" value="" /></li>
+      
+      <li class="clearfix"> <label width="125px;">City:</label><input class="text" name="addressCity" type="text"
+        value="" /></li>
+        
+      <li class="clearfix"> <label width="125px;">State:</label><input class="text" name="addressState" type="text"
+        value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Country:</label><input class="text" name="addressCountry"
+        type="text" value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Pin Code:</label><input class="text" name="addressZip" type="text"
+        value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Mobile Number:</label><input class="text" name="phoneNumber" type="text"
+        value="" /></li>
+    
+      <li class="clearfix"> <label width="125px;">Email:</label><input class="text" name="email" type="text" value="" />
+      </li>
+      
+      <li class="clearfix"> <label width="125px;">Amount:</label><input class="text" name="orderAmount" type="text" value="" />
+      </li>
+      
+      <li class="clearfix"> <label width="125px;">Currency (ISO3):</label><input class="text" name="currency" type="text" value="INR" />
+      </li>
+      
+      <li class="clearfix"> <label width="125px;">Payment Mode:</label><select class="text" name="paymentMode">
+        <option value="">Select Payment Mode</option>
+        <option value="NET_BANKING">NetBanking</option>
+        <option value="CREDIT_CARD">Credit Card</option>
+        <option value="DEBIT_CARD">Debit Card</option>
+        <option value="CASH_ON_DELIVERY">Cash On Delivery</option>
+      </select>
+      </li>
+      <li class="clearfix"><input type="submit" name="submit" class="btn-orange" value="Verify Transaction" /></li>
+  </ul> 
+
+  <% else %>
+  
+  <h1>Verify Transaction Details and Pay or Edit</h1><br /><br />
+  <ul class="form-wrapper add-merchant clearfix">
+      <li class="clearfix"><span><b>Merchant Access Key:</b> <i><%= params[:merchantAccessKey] %></i></span>
+      <input name="merchantAccessKey"
+        type="hidden" value="<%= params[:merchantAccessKey] %>"  /></li>
+    
+      <li class="clearfix"><span><b>Order Number:</b> <i><%= params[:merchantTxnId] %></i></span><input name="merchantTxnId"
+        type="hidden" value="<%= params[:merchantTxnId] %>"   /></li>
+    
+      <li class="clearfix"><span><b>First Name:</b> <i> <%= params[:firstName] %></i></span><input name="firstName" type="hidden"
+        value="<%= params[:firstName] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Last Name:</b> <i> <%= params[:lastName] %></i></span>
+      <input name="lastName" type="hidden" value="<%= params[:lastName] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Address:</b> <i> <%= params[:addressStreet1] %></i></span><input name="addressStreet1"
+        type="hidden" value="<%= params[:addressStreet1] %>"   /></li>
+      
+      <li class="clearfix"><span><b>City:</b> <i> <%= params[:addressCity] %></i></span><input name="addressCity" type="hidden"
+        value="<%= params[:addressCity] %>"   /></li>
+        
+      <li class="clearfix"><span><b>State:</b> <i> <%= params[:addressState] %></i></span><input name="addressState" type="hidden"
+        value="<%= params[:addressState] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Country:</b> <i> <%= params[:addressCountry] %></i></span><input name="addressCountry"
+        type="hidden" value="<%= params[:addressCountry] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Pin Code:</b> <i> <%= params[:addressZip] %></i></span><input name="addressZip" type="hidden"
+        value="<%= params[:addressZip] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Mobile Number:</b> <i> <%= params[:phoneNumber] %></i></span><input name="phoneNumber" type="hidden"
+        value="<%= params[:phoneNumber] %>"   /></li>
+    
+      <li class="clearfix"><span><b>Email:</b> <i> <%= params[:email] %></i></span>
+      <input name="email" type="hidden" value="<%= params[:email] %>"   />
+      </li>
+      
+      <li class="clearfix"><span><b>Amount:</b> <i> <%= params[:orderAmount] %></i></span>
+      <input name="orderAmount" type="hidden" value="<%= params[:orderAmount] %>"  />
+      </li>
+      
+      <li class="clearfix"><span><b>Currency:</b> <i> <%= params[:currency] %></i></span>
+      <input name="currency" type="hidden" value="<%= params[:currency] %>"  />
+      </li>
+      
+      <li class="clearfix"><span><b>Payment Mode:</b> <i> <%= params[:paymentMode] %></i></span>
+      <input type="hidden" name="paymentMode" value="<%= params[:paymentMode] %>"  />
+      </li>
+      
+      <li class="clearfix">
+        <input type="hidden" name="returnUrl" value="<%= $returnUrl %>" />
+        <input type="hidden" name="secSignature" value="<%= @secSignature %>" />
+        <input type="hidden" name="reqtime" value="<%= @reqtime %>" />
+        <input type="submit" name="submit" class="btn-orange" value="Pay Now" />&nbsp;&nbsp;
+        <input type="button" name="back" class="btn-orange" value="Edit" onClick="history.go(-1)" />
+      </li>
+    
+  </ul>
+  
+  <% end %>
+</form> 
+<% p params %>
+</div>
+  <div
+    style="padding-left: 700px; padding-bottom: 20px; padding-top: 20px;">
+    <div>Copyrights © 2012-2013 Citrus.</div>
+  </div>
+  </div>
+  </div>    

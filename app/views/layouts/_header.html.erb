@@ -1,0 +1,36 @@
+<header class="header grey-bg">
+ <% if user_signed_in? %>
+  <div class="sidebar-toggle-box">
+    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" style="color: #797979;"></div>
+  </div>
+<% end %>
+
+  <div class="secondary-navbar">
+    <ul style="float:left">
+       <li>
+       <li>
+        <a href="/landing/index"> Home </a>
+      </li>
+      </li>
+      <li class=<%= (params.include?('category') && params[:category].eql?('aircraft') ? 'selected' : '') %>>
+       <% air = ItemCategory.find_by(name:'aircraft') %>
+       <%= link_to air.display_name, unlok_air_index_path(category: 'aircraft') %>
+      </li>
+      <li class= <%= (request.url.include?('unlok') && params.include?('category') && params[:category].eql?('helicopter') ? 'selected' : '') %> >
+        <% heli = ItemCategory.find_by(name:'helicopter') %>
+        <%= link_to heli.display_name, unlok_air_index_path(category: 'helicopter') %>
+      </li>
+      <li>
+        <a href="/legs/index"> Empty Legs </a>
+      </li>
+
+       <% unless user_signed_in? %>
+        <li>
+          <%= link_to "Login", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+	
+	<div style="text-align:right;font-size:18px;color:#fff;float:right;margin:25px 20px 10px 0">Contact us at 011-49853050</div>
+  </div>
+</header>

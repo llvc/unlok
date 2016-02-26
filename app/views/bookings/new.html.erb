@@ -1,0 +1,73 @@
+<section id="main-content">
+      <section class="wrapper">
+        <div class="rows mt">
+          <div class="bookflight-content">
+          <%= form_for @booking do |f| %>
+            <div class="btnradio">
+                <%= f.radio_button :oneway_trip, true, id: 'oneway', checked: true %>
+                <label for="oneway">One Way</label>
+                <%= f.radio_button :oneway_trip, false, id: 'round', checked: false %>
+                <label for="round">Round Trip</label>
+            </div>
+            <p>Trip type:</p>
+            <div class="radio">
+              <%= f.radio_button :trip_type, true, id: 'domestic', checked: true %>
+              <label class="radiobtn" for="domestic">Domestic</label>
+              <%= f.radio_button :trip_type, false, id: 'international', checked: false %>
+              <label class="radiobtn" for="international">International</label>
+            </div>
+            <div style="clear:both;"></div>
+            <div>
+              <label>Departure from:
+                <%= f.select :from_location, options_for_select(@domestic_locations), {}, class: 'domestic_locations' %>
+                <%= f.select :from_location, options_for_select(@international_locations), {}, class: 'international_locations', disabled: true %>
+              </label>
+              <br><br>
+              <label>Arrival to:
+                <%= f.select :to_location, options_for_select(@domestic_locations), {}, class: 'domestic_locations' %>
+                <%= f.select :to_location, options_for_select(@international_locations), {}, class: 'international_locations', disabled: true %>
+              </label>
+            </div>
+            <br><br>
+            <label>No of passengers:
+            <%= f.select :quantity, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10], [11, 11], [12, 12], [13, 13], [14, 14], [15, 15]]) %>
+            </label>
+            <br><br>
+            <label>Aircraft type:
+              <%= f.collection_select :aircraft_type, Item.find(params[:item_id]).item_category.items, :name, :name, { selected: Item.find(params[:item_id]).try(:name), prompt: 'Select Aircraft type' } %>
+            </label>
+            <br><br>
+             <label>Date:
+              <br/>
+              <%= f.text_field :tripdate, autocomplete: "off",:placeholder => "dd/mm/yy"%>
+            </label>
+            <br><br>
+           
+             <label>Time:
+              <br/>
+              <%= f.text_field :triptime, autocomplete: "off",:placeholder => "ex : 9 Am"%>
+            </label>
+            <br><br>
+            <label>Special requests:
+              <%= f.text_field :message, autocomplete: "off", class: "message-icon message-with-icon"%>
+            </label>
+            <br><br>
+            <div class="hidden-invoice">
+              <label>Invoice Number:
+                <%= f.text_field :invoice_number, autocomplete: "off", class: "message-with-icon", 
+                          :value => @booking.invoice_number %>
+              </label>
+            </div>
+            <br><br>
+
+            <%= f.hidden_field :item_id, value: params[:item_id] %>
+            <%= f.hidden_field :item_name, value: params[:name] %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :bookable_type, value: 'common' %>
+            <%= f.submit 'Request flight', class: 'reqbtn', style: 'width: 250px' %>
+          </div>
+          <% end %>
+        </div>
+      </section>
+    </section>
+  </section>

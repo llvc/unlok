@@ -1,0 +1,60 @@
+<section id="main-content">
+      <section class="wrapper">
+        <div class="rows mt">
+
+          <div class="bookflight-content">
+
+
+          <%= form_for @booking do |f| %>
+
+
+            <div class="btnradio">
+
+            <%= f.radio_button :oneway_trip, true, id: 'oneway', checked: true %>
+              <label for="oneway">Oneway</label>
+              <%= f.radio_button :oneway_trip, false, id: 'round', checked: false %>
+              <label for="round">Round</label>
+            </div>
+
+            <p>Trip type:</p>
+            <div class="radio">
+              <%= f.radio_button :trip_type, 'domestic', id: 'domestic', checked: true, value: "domestic" %>
+              <label class="radiobtn" for="domestic">Domestic</label>
+              <%= f.radio_button :trip_type, 'international', id: 'international', checked: false, value: "international" %>
+              <label class="radiobtn" for="international">International</label>
+            </div>
+
+            <label>Departure from:
+
+              <%= f.select :from_location, options_for_select([["Bangalore", "Bangalore"], ["Delhi", "Delhi"], ["Mumbai", "Mumbai"]]) %>
+
+            </label>
+            <br><br>
+            <label>Arrival to:
+              <%= f.select :to_location, options_for_select([["Bangalore", "Bangalore"], ["Delhi", "Delhi"], ["Mumbai", "Mumbai"]]) %>
+            </label>
+            <br><br>
+            <label>No of passengers:
+            <%= f.select :from_location, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]) %>
+            </label>
+            <br><br>
+            <label>Aircraft type:
+              <%= f.select :aircraft_type, options_from_collection_for_select(ItemCategory.find_by(name: 'aircraft').items, "id", "name") %>
+            </label>
+            <br><br>
+
+            <%= f.hidden_field :item_id, value: params[:id] %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.submit 'Request flight', class: 'reqbtn', style: 'width: 250px' %>
+
+          </div>
+
+          <% end %>
+
+        </div>
+
+      </section><! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+    <!--main content end-->
+  </section>

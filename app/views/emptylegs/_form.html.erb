@@ -1,0 +1,45 @@
+<%= form_for(@emptyleg) do |f| %>
+  <% if @emptyleg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@emptyleg.errors.count, "error") %> prohibited this emptyleg from being saved:</h2>
+
+      <ul>
+      <% @emptyleg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aircraft_type %><br>
+    <%= f.text_field :aircraft_type %>
+  </div>
+  <div class="field">
+    <%= f.label :departon %><br>
+    <%= f.text_field :departon %>
+  </div>
+  <div class="field">
+    <%= f.label :from %><br>
+    <%= f.text_field :from %>
+  </div>
+  <div class="field">
+    <%= f.label :to %><br>
+    <%= f.text_field :to %>
+  </div>
+  <div class="field">
+    <%= f.label :seats %><br>
+    <%= f.number_field :seats %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :min_price %><br>
+    <%= f.text_field :min_price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

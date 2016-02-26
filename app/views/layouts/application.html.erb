@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Unlok-Server</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link href='/assets/fonts/font-awesome/css/font-awesome.css' rel='stylesheet' type='text/css'>
+		<script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+
+	</head>
+
+	<body class="<%= user_signed_in? ? '':'signup' %>">
+
+
+		<% if user_signed_in? %>
+            <%= render 'layouts/header'%>
+			<%= render 'layouts/left_sidebar'%>
+		<% end %>
+
+		  
+		<%= yield %>
+		
+		<%= javascript_include_tag 'application' %>
+	</body>
+</html>

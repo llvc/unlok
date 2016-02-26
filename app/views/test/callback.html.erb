@@ -1,0 +1,52 @@
+<div id="page-header">
+    <div class="page-wrap">
+      <div class="logo-wrapper">
+        <a href="http://www.citruspay.com/"> <img height="32" width="81"
+          src="<%=asset_path "logo_citrus.png"%>" alt="Citrus" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-client-logo">&#160;</div>
+  <div id="page-wrapper">
+    <div class="box-white">
+      <div class="page-content">
+        <h3>Response from Citrus Payment Gateway</h3><br /><br />
+          <ul class="form-wrapper add-merchant clearfix">
+            <li class="clearfix"><b>Status:</b> <i><%= @statusmsg %></i></li>
+            <% if @status == true %>
+            
+            <li class="clearfix"><b>TxStatus:</b> <i><%= @txstatus %></i></li>
+            <li class="clearfix"><b>TxId:</b> <i><%= @txid %></i></li>
+            <li class="clearfix"><b>TxRefNo:</b> <i><%= @txrefNo %></i></li>
+            <li class="clearfix"><b>pgTxnNo:</b> <i><%= @pgtxnno %></i></li>
+            <li class="clearfix"><b>pgRespCode:</b> <i><%= @pgrespcode %></i></li>
+            <li class="clearfix"><b>TxMsg:</b> <i><%= @txmsg %></i></li>
+            <li class="clearfix"><b>Amount:</b> <i><%= @amount %></i></li>
+            <li class="clearfix"><b>AuthIdCode:</b> <i><%= @authidcode %></i></li>
+            <li class="clearfix"><b>IssuerRefNo:</b> <i><%= @issuerrefno %></i></li>
+            <li class="clearfix"><b>Signature:</b> <i><%= @signature %></i></li>
+            <li class="clearfix"><b>TransactionId:</b> <i><%= @transactionid %></i></li>
+            <li class="clearfix"><b>PaymentMode:</b> <i><%= @paymentmode %></i></li>
+            <li class="clearfix"><b>TxGateway:</b> <i><%= @txgateway %></i></li>
+            <li class="clearfix"><b>Currency:</b> <i><%= @currency %></i></li>
+            <li class="clearfix"><b>FirstName:</b> <i><%= @firstname %></i></li>
+            <li class="clearfix"><b>LastName:</b> <i><%= @lastname %></i></li>
+            <li class="clearfix"><b>Email:</b> <i><%= @email %></i></li>
+            <li class="clearfix"><b>AddressStreet1:</b> <i><%= @addressstreet1 %></i></li>
+            <li class="clearfix"><b>AddressStreet2:</b> <i><%= @addressstreet2 %></i></li>
+            <li class="clearfix"><b>AddressCity:</b> <i><%= @addresscity %></i></li>
+            <li class="clearfix"><b>AddressState:</b> <i><%= @addressstate %></i></li>
+            <li class="clearfix"><b>AddressCountry:</b> <i><%= @addresscountry %></i></li>
+            <li class="clearfix"><b>AddressZip:</b> <i><%= @addresszip %></i></li>
+            <li class="clearfix"><b>MobileNo:</b> <i><%= @mobileno %></i></li>
+            
+            <% end %>
+          </ul>
+      </div>
+    <div style="padding-left: 700px; padding-bottom: 20px; padding-top: 20px;">
+      <div>Copyrights © 2012-2013 Citrus.</div>
+    </div>
+  </div>
+</div>    

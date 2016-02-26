@@ -1,0 +1,72 @@
+<p>
+  <%= image_tag('topimage.png',:width => 50) %>
+</p>
+
+<p>
+  Hello,
+</p>
+
+<p>
+  I am gonna book my flight.
+</p>
+
+<p>
+  Let me know my request would be accepted for your company.
+</p>
+
+<p>
+  My Booking Info are Given Below:-
+</p>
+
+<p>
+  Name: <%= @booking.user.profile.try(:name) %>
+</p>
+
+<p>
+  Phone: <%= @booking.user.try(:mobile_number) %>
+</p>
+
+<p>
+  E-mail: <%= @booking.user.try(:email) %>
+</p>
+
+<p>
+  Booking Way: <% if @booking.oneway_trip %><%= render plain: "Oneway" %><% else %><%= render plain: "Round" %><% end %>
+</p>
+
+<p>
+  Trip Type: <% if !@booking.trip_type %><%= render plain: "International" %><% else %><%= render plain: "Domestic" %><% end %>
+</p>
+
+<p>
+  Plane Name: <%= @booking.aircraft_type %>
+</p>
+
+<p>
+  From: <%= @booking.from_location %>
+</p>
+
+<p>
+  To: <%= @booking.to_location %>
+</p>
+
+<p>
+  No of Passengers: <%= @booking.quantity %>
+</p>
+
+<p>
+  Invoice Number: <%= @booking.invoice_number %>
+</p>
+
+<p>
+  Special Requests: <%= @booking.message %>
+</p>
+
+<p>
+ Kindly let me know I can carry out my requirements.
+</p>
+
+<br>
+<p>
+  Thanks
+</p>

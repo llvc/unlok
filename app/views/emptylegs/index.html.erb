@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<section id="main-content">
+  <section class="wrapper">
+    <h3></h3>
+    <div class="mt">
+<h1>Emptylegs</h1>
+
+<table width="99%" border="1">
+  <thead>
+    <tr>
+	  <th>Aircraft type&nbsp;</th>
+      <th>Departs On &nbsp; </th>
+      <th>Departs From  &nbsp;</th>
+      <th>Departs To &nbsp;</th>
+      <th>No of Seats Left &nbsp;</th>
+      <th>Full Price &nbsp;</th>
+      <th>Empty Leg price &nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emptylegs.each do |emptyleg| %>
+      <tr>
+        <td><%= emptyleg.aircraft_type %></td>
+        <td><%= emptyleg.departon %></td>
+        <td><%= emptyleg.from %></td>
+        <td><%= emptyleg.to %></td>
+        <td><%= emptyleg.seats %></td>
+        <td><%= emptyleg.price %></td>
+        <td><%= emptyleg.min_price %></td>
+        <td><%= link_to 'Show', emptyleg %></td>
+        
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>
+</section>
+</section>
+

@@ -1,0 +1,26 @@
+
+<section id="main-content">
+  <section class="wrapper">
+    <h3></h3>
+    <div class="row mt">
+      <section class="thumbnails-3x">
+        <% @items.in_groups_of(2).each do |group| %>
+            <% group.compact.each_with_index do |item, index| %>
+                <div class="card" style="margin-bottom: 10px;">
+                  <%= link_to unlok_air_path(item.id) do  %>
+                      <%= image_tag(item.pictures.first.image.url(:large)) rescue nil%>
+                      <h6><%= item.name %></h6>
+                  <% end %>
+
+                </div>
+            <% end %>
+        <% end %>
+      </section>
+    </div>
+    
+    <% if not @items.first.nil? %>
+        <%= link_to '', new_booking_path + "?item_id=" + @items.first.id.to_s, class: 'md-button' %>
+    <% end %>
+ 
+  </section>
+</section>

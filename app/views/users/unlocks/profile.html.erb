@@ -1,0 +1,24 @@
+<div class="header grey-bg">
+</div>
+<div class="rows mt">         
+  <div class="contact-content">
+    <%= form_for @contact do |f| %>  
+      <h4 class="small">Please fill in your details below and
+                        our team will get in touch with you.</h4>
+      <p> I am a:</p>
+        <div class="radio">
+          <%= f.radio_button :mtype, 'vendor', checked: true %>
+          <%= f.label :mtype, "VENDOR", :value => "vendor"  %>
+          <%= f.radio_button :mtype, 'customer' %>
+          <%= f.label :mtype, "CUSTOMER", :value => "customer" %>
+        </div>
+        <div class="contact-fields">
+          <%= f.text_field :name, autocomplete: "off", placeholder:"Mobile Number",class: "mobile-icon"%>
+          <%= f.email_field :email, autocomplete: "off", placeholder:"E-mail",class: "email-icon"%>
+          <%= f.text_field :message, autocomplete: "off", placeholder:"Message",class: "message-icon"%>
+        </div>
+        <%= f.submit "submit", class: "btn" %>
+    <% end %>  
+  </div>
+</div>      
+  

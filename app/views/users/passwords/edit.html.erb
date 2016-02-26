@@ -1,0 +1,23 @@
+<div class="signin-screen">
+ 
+ <a class="unloklogo"><img src="/assets/logo.png"/></a>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+
+     <div class="input-fields">
+
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder:"Password",class: "password-icon" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off",placeholder:"Password Confirmation",class: "password-icon" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change my password",class: "signbtn" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

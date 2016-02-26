@@ -1,0 +1,65 @@
+ 
+<section id="main-content">
+
+    <div  class="background-box"  style="background-image: url(/assets/landing.jpg)">
+      <div class="container" style="color: white; margin: 0 auto;
+              width: 78%;
+              padding-top: 60px;
+              font-size: 20px;
+              line-height: 26px;">
+
+               <a class="unloklogo"><img src="/assets/logo.png"/></a>
+               <br/>
+               <br/>
+        <div class="centered"> We are a global premium aircraft aggregator and an aircraft luxury service provider</div>        
+
+    
+        
+<div class="centered">
+        <ul>
+          
+       <h2> Our Services  </h2>
+    <br/>
+   
+        </ul>
+        
+	<div class="icon-box">
+	<ul>
+       <li>     
+  <a href="/unlok_air?category=aircraft">
+          <img width="125" height="140" src="/assets/icon11.png">
+
+    </a><br>
+  Fight Bookings
+   </li>     
+  <li>
+<a href="/emptylegs">
+          <img width="125" height="140" src="/assets/icon12.png">
+  
+        </a>
+    <br>
+  Empty Legs
+   </li>  
+       
+ <li>     
+       <% if not @items.first.nil? %>
+        
+   <%= link_to image_tag("/assets/icon13.png", :height => 140, :width => 125, :class => "centered"), new_booking_path + "?item_id=" + @items.first.id.to_s %>
+
+         
+        
+		<br>
+  Personlized Travel
+  <% end %>
+		</li>
+	</ul>
+        
+     </div> 
+
+
+        <!--<a style="color:#F1F1B3; float: right;" href="#" onclick="history.back();">Back</a>-->
+          </div>
+      </div>
+    </div>
+
+</section>

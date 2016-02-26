@@ -1,0 +1,22 @@
+<div class="signin-screen">
+  <a class="unloklogo"><img src="/assets/logo.png"/></a>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="input-fields">
+      <%= f.email_field :email, autofocus: true,class: "user-icon",placeholder: "Email", autocomplete: "off"  %>
+      <%= f.password_field :password, autocomplete: "off",class: "password-icon",placeholder: "Password" %>
+    </div>
+    <%= f.submit "Log in", class: "signbtn" %>
+    <%= link_to "Register", new_registration_path(resource_name),:class=>'registerbtn' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name),:class=>'forgotbtn' %>
+    <p class="txt" style="margin-top:50px">
+      <font color="#797979">or sign in with</font>
+    </p>
+    <div class="other">
+      <a href=<%= user_omniauth_authorize_path(:google_oauth2) %>><%= image_tag("google.png") %></a>
+    </div>
+    <div class="other">
+      <a href=<%=user_omniauth_authorize_path(:facebook)%>><%= image_tag("facebook.png") %></a>
+    </div>
+  <% end %>
+</div>

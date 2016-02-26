@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Aircraft type:</strong>
+  <%= @emptyleg.aircraft_type %>
+</p>
+
+<p>
+  <strong>Departon:</strong>
+  <%= @emptyleg.departon %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @emptyleg.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @emptyleg.to %>
+</p>
+
+<p>
+  <strong>Seats:</strong>
+  <%= @emptyleg.seats %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @emptyleg.price %>
+</p>
+
+<p>
+  <strong>Min price:</strong>
+  <%= @emptyleg.min_price %>
+</p>
+
+<%= link_to 'Edit', edit_emptyleg_path(@emptyleg) %> |
+<%= link_to 'Back', emptylegs_path %>

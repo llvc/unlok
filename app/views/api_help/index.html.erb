@@ -1,0 +1,126 @@
+<span class="left_panel">
+  <div class="table">
+    <%= render partial: 'index', locals: {index_arr: ApiIndexRenderer.passenger_api_index } %>
+  </div>  
+</span>
+<span class='right_panel'> 
+  
+  <!-- Sign Up Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Register',
+        link_href: 'register',
+        link_method: 'POST',
+        original_link: api_signup_path,
+        parameters: [
+          {name: 'user[username]', description: 'User name', required: 1},
+          {name: 'user[email]', description: 'Email Address of User', required: 1 },
+          {name: 'user[password]', description: 'Password', required: 1},
+          {name: 'user[password_confirmation]', description: 'Password', required: 1},
+          {name: 'user[mobile_number]', description: 'Contact Number'},
+        ],
+        options: {}} %>
+
+  <!-- Signup with facebook and twitter Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Signup with facebook and google',
+        link_href: 'signup_with_facebook_and_google',
+        link_method: 'POST',
+        original_link: api_signup_with_facebook_and_google_url,
+        parameters: [
+          {name: 'user[username]', description: 'User Name', required: 1},
+          {name: 'user[email]', description: 'Email Address of User', required: 1 },
+          {name: 'user[mobile_number]', description: 'Contact Number'},
+          {name: 'user[facebook_token]', description: 'for facebook sign up',required: 1},
+          {name: 'user[g_token]', description: 'for google sign up', required: 1 },
+        ],
+        options: {}} %>
+
+  <!-- Sign in Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Login',
+        link_href: 'login',
+        link_method: 'POST',
+        original_link: api_signin_path,
+        parameters: [
+          {name: 'email', description: 'Email Address of User', required: 1 },
+          {name: 'password', description: 'Password', required: 1},
+          {name: 'facebook_token', description: 'if login with facebook then provide this token only', required: 1},
+          {name: 'g_token', description: 'if login with g+ then provide this token only', required: 1},
+        ],
+        options: {}} %>
+  
+  <!-- forgot password Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Forgot Password',
+        link_href: 'forgot_password',
+        link_method: 'POST',
+        original_link: api_forgot_password_url,
+        parameters: [
+          {name: 'email', description: 'Email', required: 1},
+        ],
+        options: {}} %>
+
+  <!-- Sign in Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Logout',
+        link_href: 'logout',
+        link_method: 'POST',
+        original_link: api_logout_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication ', required: 1 },
+        ],
+        options: {}} %>
+  
+
+  <!-- All main category -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Main Category',
+        link_href: 'main_category',
+        link_method: 'POST',
+        original_link: api_main_category_path,
+        parameters: [],
+        options: {}} %> 
+        
+  <!-- All sub category -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Sub Category',
+        link_href: 'sub_category',
+        link_method: 'POST',
+        original_link: api_sub_category_path,
+        parameters: [
+        	{name: 'parent_category_id', description: 'Main/Parent Category ', required: 1 },
+        ],
+        options: {}} %>
+   
+   <!-- All sub category -->
+  <%= render partial: 'api', locals: {
+        link_name: 'All Items',
+        link_href: 'all_items',
+        link_method: 'POST',
+        original_link: api_all_items_path,
+        parameters: [],
+        options: {}} %>
+        
+   <!-- All items based on category -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Category Items',
+        link_href: 'category_items',
+        link_method: 'POST',
+        original_link: api_category_items_path,
+        parameters: [
+        	{name: 'parent_category_id', description: 'Main/Parent Category ', required: 1 },
+        ],
+        options: {}} %>
+        
+    <!-- All items based on sub category -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Sub Category Items',
+        link_href: 'sub_category_items',
+        link_method: 'POST',
+        original_link: api_sub_category_items_path,
+        parameters: [
+        	{name: 'sub_category_id', description: 'Sub Category ', required: 1 },
+        ],
+        options: {}} %>                          
+
+</span>
